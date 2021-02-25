@@ -10,4 +10,4 @@ function findLongestWord(queryStr) {
 
 var testStr = 'The quick brown fox jumped over the lazy dog';
 
-console.log(findLongestWord(testStr));
+console.log(findLongestWord(testStr)); // jumped

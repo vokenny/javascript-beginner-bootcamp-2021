@@ -16,4 +16,4 @@ function isPermutation(queryStr1, queryStr2) {
 var testStr1 = 'baseball';
 var testStr2 = 'ASaLlBbE';
 
-console.log(isPermutation(testStr1, testStr2));
+console.log(isPermutation(testStr1, testStr2)); // true
