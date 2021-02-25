@@ -21,6 +21,8 @@ function isAllUniqueCharsArr(queryStr) {
   let queryStrLower = queryStr.toLocaleLowerCase();
   let queryArr = queryStrLower.split('');
 
+  // Every char in the array must satisfy the given predicate
+  // where the predicate checks that each char `c` in the whole array only matches the given `char` once
   return queryArr.every((char) => {
     return queryArr.filter((c) => c === char).length === 1;
   })
