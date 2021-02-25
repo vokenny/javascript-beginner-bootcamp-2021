@@ -25,7 +25,7 @@ function isAllUniqueCharsArr(queryStr) {
   // where the predicate checks that each char `c` in the whole array only matches the given `char` once
   return queryArr.every((char) => {
     return queryArr.filter((c) => c === char).length === 1;
-  })
+  });
 }
 
 var testStrs = [
