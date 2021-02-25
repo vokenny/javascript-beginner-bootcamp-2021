@@ -8,6 +8,9 @@ function isPermutation(queryStr1, queryStr2) {
   let strArr2 = [...str2].sort();
 
   return strArr1.every((char, idx) => char === strArr2[idx]);
+
+  // Alternatively
+  // return strArr1.join() === strArr2.join();
 }
 
 var testStr1 = 'baseball';
