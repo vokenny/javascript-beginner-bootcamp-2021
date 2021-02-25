@@ -4,7 +4,7 @@
 
 /* 1. Kept as a string */
 function isAllUniqueChars(queryStr) {
-  let queryStrLower = queryStr.toLocaleLowerCase();
+  let queryStrLower = queryStr.toLowerCase();
 
   for (let charIdx in queryStrLower) {
     let char = queryStrLower[charIdx];
@@ -18,7 +18,7 @@ function isAllUniqueChars(queryStr) {
 
 /* 2. Converted to Array */
 function isAllUniqueCharsArr(queryStr) {
-  let queryStrLower = queryStr.toLocaleLowerCase();
+  let queryStrLower = queryStr.toLowerCase();
   let queryArr = queryStrLower.split('');
 
   // Every char in the array must satisfy the given predicate
@@ -39,7 +39,7 @@ var testStrs = [
 ];
 
 console.log('Kept as a string');
-testStrs.forEach((word) => console.log(isAllUniqueChars(word)));
+testStrs.forEach(_ => console.log(isAllUniqueChars(_)));
 
 console.log('Converted to array');
-testStrs.forEach((word) => console.log(isAllUniqueCharsArr(word)));
+testStrs.forEach((_) => console.log(isAllUniqueCharsArr(_)));
