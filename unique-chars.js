@@ -4,16 +4,16 @@
 
 /* 1. Kept as a string */
 function isAllUniqueChars(queryStr) {
-  let isUnique = true;
   let queryStrLower = queryStr.toLocaleLowerCase();
 
   for (let charIdx in queryStrLower) {
     let char = queryStrLower[charIdx];
 
-    if (queryStrLower.indexOf(char) !== queryStrLower.lastIndexOf(char)) isUnique = false;
+    // Exit early with false if any single character is not unique
+    if (queryStrLower.indexOf(char) !== queryStrLower.lastIndexOf(char)) return false;
   }
 
-  return isUnique;
+  return true;
 }
 
 /* 2. Converted to Array */
@@ -21,11 +21,9 @@ function isAllUniqueCharsArr(queryStr) {
   let queryStrLower = queryStr.toLocaleLowerCase();
   let queryArr = queryStrLower.split('');
 
-  let isUnique = queryArr.every((char) => {
+  return queryArr.every((char) => {
     return queryArr.filter((c) => c === char).length === 1;
   })
-
-  return isUnique;
 }
 
 var testStrs = [
