@@ -11,6 +11,6 @@ var testNames = [
   'Kenny Vo',
   'Geralt of Rivia',
   'Spongebob Squarepants'
-]
+];
 
 testNames.forEach(name => console.log(nameSwap(name)));
