@@ -1,0 +1,54 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: grid;
+  justify-items: center;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+#title {
+  animation: drop 1s;
+  height: 10vh;
+}
+
+@keyframes drop {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.circle {
+  height: 100px;
+  width: 100px;
+  background-color: #ffcb6a;
+  border-radius: 50%;
+}
+
+.fade-loop {
+  animation: fade-loop 2s infinite alternate linear;
+}
+
+@keyframes fade-loop {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.slide-right {
+  animation: slide-right 1s 5s forwards;
+}
+
+@keyframes slide-right {
+  100% {
+    transform: translateX(75vw);
+  }
+}
