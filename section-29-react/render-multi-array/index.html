@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
     <!-- BABEL LIBRARY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
-    <title>Filtering through lists</title>
+    <title>Rendering multiple lists in single component</title>
   </head>
   <body>
     <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT  -->
@@ -19,26 +19,27 @@
 
     <!-- JAVASCRIPT -->
     <script type="text/babel">
-      // function FamilyList(props) {
-      //   const { siblings } = props;
-      //   const females = siblings.filter((_) => _.female);
-
-      //   let femalesList = females.map((sibling) => {
-      //     return <div key={sibling.id}>{sibling.name}</div>;
-      //   });
-
-      //   return <div>{femalesList}</div>;
-      // }
-
-      // Alternative FamilyList component
       function FamilyList(props) {
+        const { siblings } = props;
+        const female = siblings
+          .filter((_) => _.female)
+          .map((sibling) => {
+            return <div key={sibling.id}>{sibling.name}</div>;
+          });
+
+        const male = siblings
+          .filter((_) => !_.female)
+          .map((sibling) => {
+            return <div key={sibling.id}>{sibling.name}</div>;
+          });
+
         return (
           <div>
-            {props.siblings
-              .filter((_) => _.female)
-              .map((sibling) => {
-                return <div key={sibling.id}>{sibling.name}</div>;
-              })}
+            <h1>Female Siblings</h1>
+            <div>{female}</div>
+            <hr />
+            <h1>Male Siblings</h1>
+            <div>{male}</div>
           </div>
         );
       }
