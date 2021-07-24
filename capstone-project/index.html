@@ -24,8 +24,10 @@
       function FriendList(props) {
         const { friends } = props;
 
-        let friendList = friendsList.map((friend) => {
-          return <FriendLy name={friend.name} imgUrl={friend.imgUrl} />;
+        let friendList = friendsList.map((friend, idx) => {
+          return (
+            <FriendLy key={idx} name={friend.name} imgUrl={friend.imgUrl} />
+          );
         });
 
         return <div>{friendList}</div>;
