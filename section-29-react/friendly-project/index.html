@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>FriendLy</title>
+  </head>
+  <body>
+    <div id="app">React has not rendered yet</div>
+
+    <script type="text/babel">
+      const friendlyStyle = {
+        display: 'inline-block',
+        margin: 20,
+        height: 300,
+        width: 200,
+        padding: 0,
+        backgroundColor: '#FFF',
+        WebkitFilter: 'drop-shadow(0px 0px 5px #555)',
+        filter: 'drop-shadow(0px 0px 5px #555)',
+      };
+
+      // FriendLy Complex Component
+      function FriendLy(props) {
+        const { friends } = props;
+
+        const femaleList = friends
+          .filter((_) => _.female)
+          .map((friend, idx) => {
+            return (
+              <div key={idx} style={friendlyStyle}>
+                <Avatar imgUrl={friend.imgUrl} />
+                <UserName name={friend.name} />
+                <GetConnected />
+              </div>
+            );
+          });
+
+        const maleList = friends
+          .filter((_) => !_.female)
+          .map((friend, idx) => {
+            return (
+              <div key={idx} style={friendlyStyle}>
+                <Avatar imgUrl={friend.imgUrl} />
+                <UserName name={friend.name} />
+                <GetConnected />
+              </div>
+            );
+          });
+
+        return (
+          <div>
+            <h1>Female Characters</h1>
+            {femaleList}
+            <hr />
+            <h1>Male Characters</h1>
+            {maleList}
+          </div>
+        );
+      }
+
+      // Avatar Component
+      function Avatar(props) {
+        var avatarStyle = {
+          marginLeft: 25,
+          marginTop: 20,
+          width: 150,
+          height: 150,
+          borderRadius: '50%',
+        };
+
+        return <img src={props.imgUrl} alt="profile pic" style={avatarStyle} />;
+      }
+
+      // UserName Component
+      function UserName(props) {
+        var nameStyle = {
+          fontSize: 24,
+          textAlign: 'center',
+          fontFamily: 'Arial, Helvetica, sans-serif',
+          margin: 20,
+        };
+
+        return <h1 style={nameStyle}>{props.name}</h1>;
+      }
+
+      // GetConnected Complex Component
+      function GetConnected() {
+        var getConnectedStyle = {
+          marginLeft: 15,
+        };
+
+        return (
+          <div style={getConnectedStyle}>
+            <Like />
+            <Share />
+            <Add />
+          </div>
+        );
+      }
+
+      var iconStyle = {
+        margin: 20,
+      };
+
+      // Like Component
+      function Like() {
+        return (
+          <i
+            className="fa fa-thumbs-o-up"
+            aria-hidden="true"
+            style={iconStyle}
+          ></i>
+        );
+      }
+
+      // Share Component
+      function Share() {
+        return (
+          <i className="fa fa-share" aria-hidden="true" style={iconStyle}></i>
+        );
+      }
+
+      // Add Component
+      function Add() {
+        return (
+          <i className="fa fa-users" aria-hidden="true" style={iconStyle}></i>
+        );
+      }
+
+      const friendsList = [
+        {
+          name: 'Spongebob',
+          imgUrl: 'https://via.placeholder.com/300',
+          female: false,
+        },
+        {
+          name: 'Patrick',
+          imgUrl: 'https://via.placeholder.com/400',
+          female: false,
+        },
+        {
+          name: 'Squidward',
+          imgUrl: 'https://via.placeholder.com/300',
+          female: false,
+        },
+        {
+          name: 'Mr Krabs',
+          imgUrl: 'https://via.placeholder.com/400',
+          female: false,
+        },
+        {
+          name: 'Plankton',
+          imgUrl: 'https://via.placeholder.com/300',
+          female: false,
+        },
+        {
+          name: 'Sandy',
+          imgUrl: 'https://via.placeholder.com/400',
+          female: true,
+        },
+        {
+          name: 'Gary',
+          imgUrl: 'https://via.placeholder.com/300',
+          female: false,
+        },
+        {
+          name: 'Larry',
+          imgUrl: 'https://via.placeholder.com/400',
+          female: false,
+        },
+      ];
+
+      ReactDOM.render(
+        <FriendLy friends={friendsList} />,
+        document.getElementById('app')
+      );
+    </script>
+  </body>
+</html>
